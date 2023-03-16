@@ -9,6 +9,7 @@ const PhoneBookPage = lazy(() => import('pages/PhoneBookPage/PhoneBookPage'));
 const LoginPage = lazy(() => import('pages/LoginPage/LoginPage'));
 const RegisterPage = lazy(() => import('pages/RegisterPage/RegisterPage'));
 const NotFoundPage = lazy(() => import('pages/NotFoundPage/NotFoundPage'));
+const RedirectPage = lazy(() => import('pages/RedirectPage'));
 
 const UserRoutes = () => {
   return (
@@ -18,6 +19,7 @@ const UserRoutes = () => {
       }
     >
       <Routes>
+        <Route path="/" element={<RedirectPage />} />
         <Route element={<PrivateRoute />}>
           <Route path="/contacts" element={<PhoneBookPage />} />
         </Route>
