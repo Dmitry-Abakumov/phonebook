@@ -9,7 +9,7 @@ const PhoneBookPage = lazy(() => import('pages/PhoneBookPage/PhoneBookPage'));
 const LoginPage = lazy(() => import('pages/LoginPage/LoginPage'));
 const RegisterPage = lazy(() => import('pages/RegisterPage/RegisterPage'));
 const NotFoundPage = lazy(() => import('pages/NotFoundPage/NotFoundPage'));
-const RedirectPage = lazy(() => import('pages/RedirectPage'));
+const RedirectPage = lazy(() => import('pages/RedirectPage/RedirectPage'));
 
 const UserRoutes = () => {
   return (
