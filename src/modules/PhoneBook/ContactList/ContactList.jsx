@@ -56,7 +56,7 @@ const ContactList = () => {
 
       {isError &&
         !isLoading &&
-        toast.error('Oops, something went wrong, please reload the page', {
+        toast.error('Oops, something went wrong, please reload the page.', {
           position: toast.POSITION.TOP_RIGHT,
         })}
     </>

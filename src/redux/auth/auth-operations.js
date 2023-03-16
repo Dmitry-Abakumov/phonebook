@@ -11,7 +11,7 @@ export const signup = createAsyncThunk(
     try {
       return await API.signup(userData);
     } catch ({ response }) {
-      toast.error('Oops, something went wrong, please try again', {
+      toast.error('Oops, something went wrong, possibly such user already exists.', {
         position: toast.POSITION.TOP_RIGHT,
       });
       rejectWithValue(response.data);
@@ -26,7 +26,7 @@ export const login = createAsyncThunk(
       return await API.login(userData);
     } catch ({ response }) {
       toast.error(
-        'Oops, something went wrong, possibly wrong login or password',
+        'Oops, something went wrong, possibly wrong login or password.',
         {
           position: toast.POSITION.TOP_RIGHT,
         }
@@ -42,7 +42,7 @@ export const logout = createAsyncThunk(
     try {
       return await API.logout();
     } catch ({ response }) {
-      toast.error('Oops, something went wrong, please try again', {
+      toast.error('Oops, something went wrong, please try again.', {
         position: toast.POSITION.TOP_RIGHT,
       });
       rejectWithValue(response.data);
@@ -60,7 +60,7 @@ export const getCurrentUser = createAsyncThunk(
     try {
       return await API.getCurrent(token);
     } catch ({ response }) {
-      toast.error('Oops, something went wrong, please reload the page', {
+      toast.error('Oops, something went wrong, please reload the page.', {
         position: toast.POSITION.TOP_RIGHT,
       });
       rejectWithValue(response.data);
