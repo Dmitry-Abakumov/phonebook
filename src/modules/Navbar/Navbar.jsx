@@ -9,7 +9,14 @@ const Navbar = () => {
   const { isLoggedIn, token } = useAuth();
 
   return (
-    <Box display="flex" justifyContent="flex-end" pt={10} pb={10} pr={15}>
+    <Box
+      display="flex"
+      justifyContent="flex-end"
+      pt={15}
+      pb={15}
+      pr={20}
+      bg="rgba(0, 0, 0, 0.3)"
+    >
       {isLoggedIn && <UserMenu />}
       {!isLoggedIn && !token && <AuthMenu />}
     </Box>

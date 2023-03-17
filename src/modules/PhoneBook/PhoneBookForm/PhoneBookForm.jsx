@@ -15,27 +15,19 @@ const PhoneBookForm = () => {
   const { name, phone } = state;
 
   return (
-    <Box
-      onSubmit={onSubmit}
-      as="form"
-      mt={10}
-      mb={10}
-      display="flex"
-      flexDirection="column"
-      alignItems="center"
-      border="1px solid black"
-      borderRadius={4}
-      pt={50}
-      pb={50}
-      maxWidth={500}
-      mr="auto"
-      ml="auto"
-    >
+    <Box mt={10}>
       <Box
+        as="form"
+        onSubmit={onSubmit}
         display="flex"
-        flexDirection="column"
-        alignItems="flex-end"
         gridGap={10}
+        flexDirection="column"
+        pt={40}
+        pb={40}
+        pr={100}
+        pl={100}
+        bg="rgba(0, 0, 0, 0.9)"
+        borderRadius={4}
       >
         <TextField handleChange={handleChange} value={name} {...fields.name} />
         <TextField

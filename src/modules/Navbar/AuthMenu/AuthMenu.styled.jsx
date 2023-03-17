@@ -3,11 +3,12 @@ import styled from '@emotion/styled';
 
 export const StyledLink = styled(NavLink)`
   text-decoration: none;
-  color: #000;
-  font-size: 20px;
+  color: #d3d3d3;
+  font-size: 25px;
+  font-weight: bold;
 
   &.active {
-    font-weight: bold;
+    color: #bec02a;
   }
 
   &:not(:last-child) {

@@ -9,6 +9,10 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+div {
+  box-sizing: border-box;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
@@ -24,7 +28,13 @@ ul {
   padding: 0;
 }
 
+li {
+  margin: 0;
+  padding: 0;
+}
+
 h1, h2, h3, h4 {
+  color: #bec02a;
   margin: 0;
 }
 
@@ -32,14 +42,11 @@ hr {
   margin: 0;
 }
 
-label {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-}
-
 .spinner {
   display: flex;
   justify-content: center;
+}
+
+p {
+  color: #d3d3d3
 }

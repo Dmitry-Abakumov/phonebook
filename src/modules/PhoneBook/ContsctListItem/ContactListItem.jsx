@@ -10,7 +10,13 @@ const ContactListItem = ({ name, number, id }) => {
   const dispatch = useDispatch();
 
   return (
-    <Box display="flex" gridGap={10} as="li" alignItems="center">
+    <Box
+      display="flex"
+      gridGap={10}
+      as="li"
+      alignItems="center"
+      color="#d3d3d3"
+    >
       {name}: {number}
       <Button onClick={() => dispatch(fetchDeleteContact(id))} type="button">
         delete

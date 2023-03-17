@@ -32,9 +32,8 @@ const authSlice = createSlice({
     builder
       .addCase(operations.signup.pending, handlePending)
       .addCase(operations.signup.fulfilled, (store, { payload }) => {
-        const { user, token } = payload;
-        store.user = user;
-        store.token = token;
+        store.user = payload?.user;
+        store.token = payload?.token;
         store.isLoggedIn = true;
         store.isLoading = false;
       })
@@ -42,9 +41,8 @@ const authSlice = createSlice({
 
       .addCase(operations.login.pending, handlePending)
       .addCase(operations.login.fulfilled, (store, { payload }) => {
-        const { user, token } = payload;
-        store.user = user;
-        store.token = token;
+        store.user = payload?.user;
+        store.token = payload?.token;
         store.isLoggedIn = true;
         store.isLoading = false;
       })

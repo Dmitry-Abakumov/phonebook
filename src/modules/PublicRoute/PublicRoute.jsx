@@ -10,7 +10,7 @@ const PublicRoute = () => {
 
   if (!isLoggedIn && token) {
     return (
-      <TailSpin height="30" width="30" color="black" wrapperClass="spinner" />
+      <TailSpin height="30" width="30" color="#d3d3d3" wrapperClass="spinner" />
     );
   }
 

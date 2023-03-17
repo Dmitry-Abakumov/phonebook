@@ -8,9 +8,7 @@ import useAuth from 'shared/hooks/useAuth';
 
 const UserMenu = () => {
   const dispatch = useDispatch();
-  const {
-    user: { name },
-  } = useAuth();
+  const { user } = useAuth();
 
   return (
     <Box
@@ -18,9 +16,10 @@ const UserMenu = () => {
       gridGap={10}
       alignItems="center"
       fontSize={20}
-      color="#000"
+      fontWeight="bold"
+      color="#bec02a"
     >
-      <span>Welcome, {name}</span>
+      <span>Welcome, {user?.name}</span>
       <Button onClick={() => dispatch(logout())} type="button">
         Logout
       </Button>

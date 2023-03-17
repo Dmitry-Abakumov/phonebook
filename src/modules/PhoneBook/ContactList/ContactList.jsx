@@ -27,25 +27,30 @@ const ContactList = () => {
       {contacts?.length > 0 && (
         <>
           <h3>Contacts</h3>
-          <Box display="flex" justifyContent="center">
-            <Box
-              as="ul"
-              display="flex"
-              flexDirection="column"
-              alignItems="flex-end"
-              gridGap={10}
-              mt={10}
-            >
-              {filteredContacts?.map(({ name, id, number }) => (
-                <ContactListItem key={id} name={name} number={number} id={id} />
-              ))}
-            </Box>
+          {/* <Box display="flex" justifyContent="center"> */}
+          <Box
+            as="ul"
+            display="flex"
+            flexDirection="column"
+            alignItems="flex-end"
+            gridGap={10}
+            mt={10}
+          >
+            {filteredContacts?.map(({ name, id, number }) => (
+              <ContactListItem key={id} name={name} number={number} id={id} />
+            ))}
           </Box>
+          {/* </Box> */}
         </>
       )}
 
       {isLoading && (
-        <TailSpin height="30" width="30" color="black" wrapperClass="spinner" />
+        <TailSpin
+          height="30"
+          width="30"
+          color="#d3d3d3"
+          wrapperClass="spinner"
+        />
       )}
 
       {contacts?.length === 0 && !isLoading && (

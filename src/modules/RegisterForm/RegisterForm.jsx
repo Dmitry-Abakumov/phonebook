@@ -12,18 +12,19 @@ const RegisterForm = () => {
   const { state, handleChange, onSubmit } = useForm(initialState, signup);
 
   return (
-    <Box
-      onSubmit={onSubmit}
-      as="form"
-      display="flex"
-      justifyContent="center"
-      pt={50}
-    >
+    <Box display="flex" justifyContent="center" mt={50}>
       <Box
+        as="form"
+        onSubmit={onSubmit}
         display="flex"
         gridGap={10}
         flexDirection="column"
-        alignItems="flex-end"
+        pt={40}
+        pb={40}
+        pr={40}
+        pl={40}
+        bg="rgba(0, 0, 0, 0.9)"
+        borderRadius={4}
       >
         <TextField
           handleChange={handleChange}

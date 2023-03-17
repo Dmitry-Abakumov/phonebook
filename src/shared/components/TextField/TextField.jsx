@@ -3,14 +3,14 @@ import { useMemo } from 'react';
 import PropTypes from 'prop-types';
 
 import Box from '../Box/Box';
-import { Input } from 'shared/components/TextField/TextField.styled';
+import { Input, Label } from 'shared/components/TextField/TextField.styled';
 
 const TextField = ({ handleChange, value, label, ...props }) => {
   const id = useMemo(() => nanoid(), []);
 
   return (
-    <Box display="flex" gridGap={10}>
-      <label htmlFor={id}>{label}</label>
+    <Box display="flex" flexDirection="column" gridGap="2px">
+      <Label htmlFor={id}>{label}</Label>
       <Input onChange={handleChange} value={value} id={id} {...props} />
     </Box>
   );

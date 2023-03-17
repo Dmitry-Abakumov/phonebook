@@ -1,6 +1,5 @@
 import { useSelector, useDispatch } from 'react-redux';
 
-import Box from 'shared/components/Box/Box';
 import TextField from 'shared/components/TextField/TextField';
 
 import { setFilter } from 'redux/filter/filter-slice';
@@ -16,16 +15,14 @@ const PhoneBookFilter = () => {
   return (
     <>
       {contacts?.length > 0 && (
-        <Box display="flex" justifyContent="center" mb={10}>
-          <TextField
-            label="Find contacts"
-            handleChange={({ target }) => dispatch(setFilter(target.value))}
-            name="filter"
-            value={filter}
-            placeholder="Filter"
-            type="text"
-          />
-        </Box>
+        <TextField
+          label="Find contacts"
+          handleChange={({ target }) => dispatch(setFilter(target.value))}
+          name="filter"
+          value={filter}
+          placeholder="Filter"
+          type="text"
+        />
       )}
     </>
   );
