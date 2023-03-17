@@ -63,9 +63,6 @@ export const getCurrentUser = createAsyncThunk(
     try {
       return await API.getCurrent(token);
     } catch ({ response }) {
-      toast.error('Oops, something went wrong, please reload the page.', {
-        position: toast.POSITION.TOP_RIGHT,
-      });
       return rejectWithValue(response.data);
     }
   },

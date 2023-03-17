@@ -1,5 +1,4 @@
 import { createSlice } from '@reduxjs/toolkit';
-// import initialState from 'modules/LoginForm/intial-state';
 
 import * as operations from 'redux/auth/auth-operations';
 
@@ -11,6 +10,7 @@ const handlePending = store => {
 const handleRejected = (store, { payload }) => {
   store.isLoading = false;
   store.error = payload;
+  store.token = null;
 };
 
 const initialState = {
