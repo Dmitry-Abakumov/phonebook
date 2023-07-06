@@ -1,4 +1,4 @@
-Hello. It is multipage React application - Phonebook.
+Hello. It`s multipage React application - Phonebook.
 
 With it, you can:
 
@@ -23,4 +23,4 @@ Used technologies and libraries:
 9. Yup validation,
 10. Axios
 
-Link to live page:
+Link to live page: https://dmitry-abakumov.github.io/phonebook/
