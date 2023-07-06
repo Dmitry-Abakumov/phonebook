@@ -27,7 +27,6 @@ const ContactList = () => {
       {contacts?.length > 0 && (
         <>
           <h3>Contacts</h3>
-          {/* <Box display="flex" justifyContent="center"> */}
           <Box
             as="ul"
             display="flex"
@@ -40,7 +39,6 @@ const ContactList = () => {
               <ContactListItem key={id} name={name} number={number} id={id} />
             ))}
           </Box>
-          {/* </Box> */}
         </>
       )}
 

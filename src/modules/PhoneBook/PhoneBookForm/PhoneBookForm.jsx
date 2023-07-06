@@ -1,43 +1,53 @@
+import { Formik, ErrorMessage } from 'formik';
+import { useDispatch } from 'react-redux';
+
 import Box from 'shared/components/Box/Box';
 import TextField from 'shared/components/TextField/TextField';
 import Button from 'shared/components/Button/Button.styled';
+import { StyledForm } from 'shared/components/StyledForm/StyledForm.styled';
+import StyledError from 'shared/components/StyledError/StyledError';
 
 import { fetchAddContact } from 'redux/contacts/contacts-operations';
-import useForm from 'shared/hooks/useForm';
+
 import fields from './fields';
 import initialState from './initial-state';
+import addContactSchema from './add-contact-schema';
 
 const PhoneBookForm = () => {
-  const { state, handleChange, onSubmit } = useForm(
-    initialState,
-    fetchAddContact
-  );
-  const { name, phone } = state;
+  const dispatch = useDispatch();
+
+  const onSubmit = (values, { resetForm }) => {
+    dispatch(fetchAddContact(values));
+
+    resetForm();
+  };
+
+  const { name, phone } = fields;
 
   return (
     <Box mt={10}>
-      <Box
-        as="form"
+      <Formik
+        initialValues={initialState}
         onSubmit={onSubmit}
-        display="flex"
-        gridGap={10}
-        flexDirection="column"
-        pt={40}
-        pb={40}
-        pr={100}
-        pl={100}
-        bg="rgba(0, 0, 0, 0.9)"
-        borderRadius={4}
+        validationSchema={addContactSchema}
       >
-        <TextField handleChange={handleChange} value={name} {...fields.name} />
-        <TextField
-          handleChange={handleChange}
-          value={phone}
-          pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
-          {...fields.phone}
-        />
-        <Button type="submit">Add contact</Button>
-      </Box>
+        {({ errors }) => (
+          <StyledForm>
+            <TextField
+              {...name}
+              bordercolor={errors.name ? '#ff002b' : '#bec02a'}
+            />
+            <ErrorMessage name={name.name} component={StyledError} />
+
+            <TextField
+              {...phone}
+              bordercolor={errors.phone ? '#ff002b' : '#bec02a'}
+            />
+            <ErrorMessage name={phone.name} component={StyledError} />
+            <Button type="submit">Add contact</Button>
+          </StyledForm>
+        )}
+      </Formik>
     </Box>
   );
 };

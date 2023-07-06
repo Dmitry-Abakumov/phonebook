@@ -1,5 +1,11 @@
+import { Wrap, Message } from './NotFoundPage.styled';
+
 const NotFoundPage = () => {
-  return <h1>Not found page</h1>;
+  return (
+    <Wrap>
+      <Message>404 Page not found</Message>
+    </Wrap>
+  );
 };
 
 export default NotFoundPage;

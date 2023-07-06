@@ -1,49 +1,56 @@
-import Box from 'shared/components/Box/Box';
-import useForm from 'shared/hooks/useForm';
+import { Formik, ErrorMessage } from 'formik';
+import { useDispatch } from 'react-redux';
+
+import { StyledForm } from 'shared/components/StyledForm/StyledForm.styled';
 
 import TextField from 'shared/components/TextField/TextField';
 import Button from 'shared/components/Button/Button.styled';
+import StyledError from 'shared/components/StyledError/StyledError';
+
+import { signup } from 'redux/auth/auth-operations';
 
 import fields from './fields';
 import initialState from './intial-state';
-import { signup } from 'redux/auth/auth-operations';
+import registerSchema from './registerSchema';
 
 const RegisterForm = () => {
-  const { state, handleChange, onSubmit } = useForm(initialState, signup);
+  const dispatch = useDispatch();
+
+  const onSubmit = (values, { resetForm }) => {
+    dispatch(signup(values));
+
+    resetForm();
+  };
+
+  const { name, email, password } = fields;
 
   return (
-    <Box display="flex" justifyContent="center" mt={50}>
-      <Box
-        as="form"
-        onSubmit={onSubmit}
-        display="flex"
-        gridGap={10}
-        flexDirection="column"
-        pt={40}
-        pb={40}
-        pr={40}
-        pl={40}
-        bg="rgba(0, 0, 0, 0.9)"
-        borderRadius={4}
-      >
-        <TextField
-          handleChange={handleChange}
-          value={state.name}
-          {...fields.name}
-        />
-        <TextField
-          handleChange={handleChange}
-          value={state.email}
-          {...fields.email}
-        />
-        <TextField
-          handleChange={handleChange}
-          value={state.password}
-          {...fields.password}
-        />
-        <Button type="submit">Register</Button>
-      </Box>
-    </Box>
+    <Formik
+      initialValues={initialState}
+      onSubmit={onSubmit}
+      validationSchema={registerSchema}
+    >
+      {({ errors }) => (
+        <StyledForm>
+          <TextField
+            {...name}
+            bordercolor={errors.name ? '#ff002b' : '#bec02a'}
+          />
+          <ErrorMessage component={StyledError} name={name.name} />
+          <TextField
+            {...email}
+            bordercolor={errors.email ? '#ff002b' : '#bec02a'}
+          />
+          <ErrorMessage component={StyledError} name={email.name} />
+          <TextField
+            {...password}
+            bordercolor={errors.password ? '#ff002b' : '#bec02a'}
+          />
+          <ErrorMessage component={StyledError} name={password.name} />
+          <Button type="submit">Register</Button>
+        </StyledForm>
+      )}
+    </Formik>
   );
 };
 

@@ -1,7 +1,7 @@
-import Box from 'shared/components/Box/Box';
-
 import UserMenu from './UserMenu/UserMenu';
 import AuthMenu from './AuthMenu/AuthMenu';
+
+import { Wrap, StyledLink } from './Navbar.styled';
 
 import useAuth from 'shared/hooks/useAuth';
 
@@ -9,17 +9,15 @@ const Navbar = () => {
   const { isLoggedIn, token } = useAuth();
 
   return (
-    <Box
-      display="flex"
-      justifyContent="flex-end"
-      pt={15}
-      pb={15}
-      pr={20}
-      bg="rgba(0, 0, 0, 0.3)"
-    >
+    <Wrap>
+      <div>
+        <StyledLink to="/">Home</StyledLink>
+        {isLoggedIn && <StyledLink to="/contacts">Contacts</StyledLink>}
+      </div>
+
       {isLoggedIn && <UserMenu />}
       {!isLoggedIn && !token && <AuthMenu />}
-    </Box>
+    </Wrap>
   );
 };
 
