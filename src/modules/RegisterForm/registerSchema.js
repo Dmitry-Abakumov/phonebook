@@ -1,6 +1,6 @@
 import { object, string } from 'yup';
 
-const emailRegex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g;
+const emailRegex = /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/g;
 
 const registerSchema = object({
   name: string().required('Enter a name'),
