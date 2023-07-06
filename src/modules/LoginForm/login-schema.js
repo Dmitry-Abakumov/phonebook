@@ -1,5 +1,6 @@
 import { object, string } from 'yup';
 
+// eslint-disable-next-line no-useless-escape
 const emailRegex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g;
 
 const loginSchema = object({
