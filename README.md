@@ -1,4 +1,4 @@
-Hello. It`s multipage React application - Phonebook
+Hello. It`s a React application - Phonebook
 
 With it, you can:
 
